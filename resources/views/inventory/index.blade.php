@@ -22,6 +22,7 @@
                   <th>Name</th>
                   <th>Stock</th>
                   <th>Harga</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,8 +31,18 @@
                 <tr>
                   <th>{{$row['id']}}</th>
                   <td>{{$row['name']}}</td>
-                  <td>Quality Control Specialist</td>
-                  <td>Blue</td>
+                  <td>{{$row['stok']}}</td>
+                  <td>{{$row['harga']}}</td>
+                  <td>
+                    <div class="flex gap-2">
+                      <a class="btn btn-warning" href="{{ route('inventory.edit', ['inventory' => $row['id']]) }}">Edit</a>
+                      <form action="{{ route('inventory.destroy', ['inventory' => $row['id']]) }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button class="btn btn-error" onclick="return confirm('Are you sure?')">Delete</button>
+                      </form>
+                    </div>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>
