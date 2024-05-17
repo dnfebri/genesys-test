@@ -13,7 +13,30 @@
           <div class="flex justify-end">
             <a class="btn btn-primary" href="{{ route('inventory.create') }}">Add</a>
           </div>
-          <div>Inventory</div>
+          <div class="overflow-x-auto">
+            <table class="table table-zebra">
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Stock</th>
+                  <th>Harga</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($data as $row)
+
+                <tr>
+                  <th>{{$row['id']}}</th>
+                  <td>{{$row['name']}}</td>
+                  <td>Quality Control Specialist</td>
+                  <td>Blue</td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
 
         </div>
       </div>

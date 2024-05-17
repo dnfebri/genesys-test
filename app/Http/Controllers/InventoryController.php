@@ -9,7 +9,8 @@ class InventoryController extends Controller
 {
     public function index()
     {
-        return view('inventory.index');
+        $data = Inventory::all()->sortBy('fieldinventory_id');
+        return view('inventory.index', compact('data'));
     }
 
     public function create()
