@@ -22,6 +22,7 @@
                   <th>Name</th>
                   <th>Stock</th>
                   <th>Harga</th>
+                  <th>Total Pembelian </th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -34,25 +35,19 @@
                   <td>{{$row['quantity']}}</td>
                   <td>{{$row['price']}}</td>
                   <td>{{$row['amount']}}</td>
-                  {{-- <td>
-                  <div class="flex gap-2">
-                    <a class="badge badge-success" href="{{ route('inventory.editStock', ['inventory' => $row['id']]) }}">Edit</a>
-                  <a class="badge badge-warning" href="{{ route('inventory.edit', ['inventory' => $row['id']]) }}">Edit</a>
-                  <form action="{{ route('inventory.destroy', ['inventory' => $row['id']]) }}" method="post">
-                    @method('delete')
-                    @csrf
-                    <button class="badge badge-error" onclick="return confirm('Are you sure?')">Delete</button>
-                  </form>
+                  <td>
+                    <div class="flex gap-2">
+                      <a class="badge badge-success" href="{{ route('pembelian.show', ['transaction' => $row['id']]) }}">Lihat</a>
+                    </div>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
           </div>
-          </td> --}}
-          </tr>
-          @endforeach
-          </tbody>
-          </table>
-        </div>
 
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </x-app-layout>

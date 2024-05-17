@@ -36,7 +36,7 @@
                   <td>
                     <div class="flex gap-2">
                       {{-- <button class="badge badge-success" onclick="my_modal_2.showModal()">Tambah Stok</button> --}}
-                      <a class="badge badge-success" href="{{ route('inventory.editStock', ['inventory' => $row['id']]) }}">Edit</a>
+                      <a class="badge badge-success" href="{{ route('inventory.editStock', ['inventory' => $row['id']]) }}">Add stock</a>
                       <a class="badge badge-warning" href="{{ route('inventory.edit', ['inventory' => $row['id']]) }}">Edit</a>
                       <form action="{{ route('inventory.destroy', ['inventory' => $row['id']]) }}" method="post">
                         @method('delete')
