@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'fieldinventory_id',
+        'name',
+        'stok',
+        'harga',
+    ];
 }
