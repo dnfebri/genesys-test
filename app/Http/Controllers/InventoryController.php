@@ -71,6 +71,32 @@ class InventoryController extends Controller
         return redirect()->route('inventory');
     }
 
+    public function editStock(Inventory $inventory)
+    {
+        $metaData = [
+            'title' => 'Add Stock Inventory',
+            'buttom' => 'Update',
+            "action" => 'put',
+            'url' => route('inventory.updateStock', ['inventory' => $inventory->id])
+        ];
+        return view('inventory.formStock', compact('inventory', 'metaData'));
+    }
+
+    public function updateStock(Request $request, Inventory $inventory)
+    {
+        $request->validate([
+            'name' => 'required',
+            'stock' => ['required', 'numeric'],
+        ], [
+            'stock.numeric' => 'Stok harus di isi dengan angka'
+        ]);
+        Inventory::where('id', $inventory->id)->update([
+            'stok' => $request->stock,
+        ]);
+
+        return redirect()->route('inventory');
+    }
+
     public function destroy(Inventory $inventory)
     {
         $inventory->delete();

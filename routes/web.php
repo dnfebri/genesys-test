@@ -24,6 +24,8 @@ require __DIR__ . '/auth.php';
 
 Route::get('/inventory', [App\Http\Controllers\InventoryController::class, 'index'])->name('inventory');
 Route::get('/inventory/add', [App\Http\Controllers\InventoryController::class, 'create'])->name('inventory.create');
+Route::get('/inventory/add/{inventory}', [App\Http\Controllers\InventoryController::class, 'editStock'])->name('inventory.editStock');
+Route::put('/inventory/add/{inventory}', [App\Http\Controllers\InventoryController::class, 'updateStock'])->name('inventory.updateStock');
 Route::post('/inventory', [App\Http\Controllers\InventoryController::class, 'store'])->name('inventory.store');
 Route::get('/inventory/{inventory}/edit', [App\Http\Controllers\InventoryController::class, 'edit'])->name('inventory.edit');
 Route::put('/inventory/{inventory}', [App\Http\Controllers\InventoryController::class, 'update'])->name('inventory.update');

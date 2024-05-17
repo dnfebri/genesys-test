@@ -35,11 +35,13 @@
                   <td>{{$row['harga']}}</td>
                   <td>
                     <div class="flex gap-2">
-                      <a class="btn btn-warning" href="{{ route('inventory.edit', ['inventory' => $row['id']]) }}">Edit</a>
+                      {{-- <button class="badge badge-success" onclick="my_modal_2.showModal()">Tambah Stok</button> --}}
+                      <a class="badge badge-success" href="{{ route('inventory.editStock', ['inventory' => $row['id']]) }}">Edit</a>
+                      <a class="badge badge-warning" href="{{ route('inventory.edit', ['inventory' => $row['id']]) }}">Edit</a>
                       <form action="{{ route('inventory.destroy', ['inventory' => $row['id']]) }}" method="post">
                         @method('delete')
                         @csrf
-                        <button class="btn btn-error" onclick="return confirm('Are you sure?')">Delete</button>
+                        <button class="badge badge-error" onclick="return confirm('Are you sure?')">Delete</button>
                       </form>
                     </div>
                   </td>
