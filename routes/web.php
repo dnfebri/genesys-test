@@ -30,3 +30,8 @@ Route::post('/inventory', [App\Http\Controllers\InventoryController::class, 'sto
 Route::get('/inventory/{inventory}/edit', [App\Http\Controllers\InventoryController::class, 'edit'])->name('inventory.edit');
 Route::put('/inventory/{inventory}', [App\Http\Controllers\InventoryController::class, 'update'])->name('inventory.update');
 Route::delete('/inventory/{inventory}', [App\Http\Controllers\InventoryController::class, 'destroy'])->name('inventory.destroy');
+
+Route::get('/pembelian', [App\Http\Controllers\TransactionController::class, 'index'])->name('pembelian.index');
+Route::get('/pembelian/add', [App\Http\Controllers\TransactionController::class, 'create'])->name('pembelian.create');
+Route::get('/pembelian/{transaction}', [App\Http\Controllers\TransactionController::class, 'show'])->name('pembelian.show');
+Route::put('/pembelian/add', [App\Http\Controllers\TransactionController::class, 'update'])->name('pembelian.update');

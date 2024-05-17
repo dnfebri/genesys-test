@@ -2,6 +2,7 @@
 $navigation = [
 ['href' => 'dashboard', 'label' => 'Dashboard'],
 ['href' => 'inventory', 'label' => 'Inventory'],
+['href' => 'pembelian.index', 'label' => 'Pembelian'],
 ];
 @endphp
 <nav x-data="{ open: false }" class="bg-zinc-800 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">

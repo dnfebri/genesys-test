@@ -9,7 +9,7 @@ class InventoryController extends Controller
 {
     public function index()
     {
-        $data = Inventory::all()->sortBy('fieldinventory_id');
+        $data = Inventory::orderBy('id', 'desc')->get();
         return view('inventory.index', compact('data'));
     }
 
