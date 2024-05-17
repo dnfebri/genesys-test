@@ -103,7 +103,7 @@ CREATE TABLE `inventories` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `inventories_fieldinventory_id_unique` (`fieldinventory_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,7 +111,7 @@ CREATE TABLE `inventories` (
 --
 
 /*!40000 ALTER TABLE `inventories` DISABLE KEYS */;
-INSERT INTO `inventories` VALUES (1,'00000','asd',10000,2,'2024-05-17 04:18:07','2024-05-17 04:18:07'),(2,'00001','asd',10000,2,'2024-05-17 04:18:30','2024-05-17 04:18:30');
+INSERT INTO `inventories` VALUES (1,'00000','asd update',10000,10,'2024-05-17 04:18:07','2024-05-17 07:20:46'),(3,'00002','barang 2',10000,0,'2024-05-17 05:59:15','2024-05-17 08:12:46'),(5,'00004','Product 2',20000,3,'2024-05-17 06:29:29','2024-05-17 08:21:36');
 /*!40000 ALTER TABLE `inventories` ENABLE KEYS */;
 
 --
@@ -182,7 +182,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `migrations` (
 --
 
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (5,'0001_01_01_000000_create_users_table',1),(6,'0001_01_01_000001_create_cache_table',1),(7,'0001_01_01_000002_create_jobs_table',1),(8,'2024_05_17_033327_create_inventories_table',1);
+INSERT INTO `migrations` VALUES (5,'0001_01_01_000000_create_users_table',1),(6,'0001_01_01_000001_create_cache_table',1),(7,'0001_01_01_000002_create_jobs_table',1),(8,'2024_05_17_033327_create_inventories_table',1),(11,'2024_05_17_072320_create_tansactions_table',2);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 --
@@ -240,8 +240,36 @@ CREATE TABLE `sessions` (
 --
 
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('vLsP2hTMFHtlpUHyJIlo0O7fFPbKIGUaVeZS69pm',1,'127.0.0.1','Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMVE0d2JleGZtcVd4dm9BV20wMmFpSGVXdllDNEVhZUlNQnJneGtrdCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvaW52ZW50b3J5Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9',1715919511);
+INSERT INTO `sessions` VALUES ('vLsP2hTMFHtlpUHyJIlo0O7fFPbKIGUaVeZS69pm',1,'127.0.0.1','Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMVE0d2JleGZtcVd4dm9BV20wMmFpSGVXdllDNEVhZUlNQnJneGtrdCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvcGVtYmVsaWFuIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9',1715934663);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+
+--
+-- Table structure for table `transactions`
+--
+
+DROP TABLE IF EXISTS `transactions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `transactions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `transaction_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_product` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quantity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transactions`
+--
+
+/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+INSERT INTO `transactions` VALUES (1,'00001','barang 2','1','10000','0','2024-05-17 08:06:34','2024-05-17 08:06:34'),(2,'00002','barang 2','1','10000','0','2024-05-17 08:09:11','2024-05-17 08:09:11'),(3,'00003','barang 2','1','10000','0','2024-05-17 08:12:33','2024-05-17 08:12:33'),(4,'00004','barang 2','1','10000','0','2024-05-17 08:12:46','2024-05-17 08:12:46'),(5,'00005','Product 2','2','20000','40000','2024-05-17 08:21:36','2024-05-17 08:21:36');
+/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 
 --
 -- Table structure for table `users`
@@ -285,4 +313,4 @@ INSERT INTO `users` VALUES (1,'admin','admin@admin.com',NULL,'$2y$12$7YtsXvLy3Bn
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-17 11:19:04
+-- Dump completed on 2024-05-17 15:31:51
